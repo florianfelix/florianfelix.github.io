@@ -2,4 +2,4 @@ default:
     npm run dev
 
 build:
-    nbm run build
+    npm run build
