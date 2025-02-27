@@ -3,18 +3,19 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>florianfelix</title>
+        <title>index</title>
         <link rel="stylesheet" href="{{ get_url(path="styles/style.css") | safe }}" />
     </head>
     <body>
         <div>
             <ul class="bg-cyan-950 text-white">
-                <li>first</li>
+                <li><a href="about">About</a></li>
                 <li>second</li>
                 <li>third</li>
                 <li>fourth</li>
                 <li>fifth</li>
             </ul>
         </div>
+        <div>{{ section.content }}</div>
     </body>
 </html>
