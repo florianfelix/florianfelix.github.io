@@ -8,7 +8,10 @@
         <link rel="stylesheet" href="{{ get_url(path="styles/style.css", cachebust=true) | safe }}" />
         <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
     </head>
-    <body class="bg-zinc-950 text-white">
+    <body class="bg-zinc-950 text-white
+        [&::-webkit-scrollbar]:w-1
+        [&::-webkit-scrollbar-track]:bg-zinc-950
+        [&::-webkit-scrollbar-thumb]:bg-zinc-500">
         {% include 'nav.html' %}
         <div class="m-auto max-w-5xl w-full bg-zinc-900 p-4 mt-16 mb-11">
 
