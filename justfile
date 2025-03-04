@@ -1,5 +1,8 @@
 default:
-    npm run dev
+    bun run dev
 
 build:
-    npm run build
+    bun run prod
+
+publish: build
+    git add . && git commit -m "publish" && git push

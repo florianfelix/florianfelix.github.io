@@ -1,20 +1,29 @@
 {
+  "name": "florianfelix.github.io",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "peerDependencies": {
+    "typescript": "^5"
+  },
   "dependencies": {
-    "@tailwindcss/cli": "^4.0.9",
-    "flowbite": "^3.1.2",
-    "tailwindcss": "^4.0.9"
+    "flowbite": "^3.1.2"
   },
   "devDependencies": {
+    "tailwindcss": "^4.0.9",
+    "@tailwindcss/cli": "^4.0.9",
     "@tailwindcss/typography": "^0.5.16",
-    "npm-run-all": "^4.1.5"
+    "@types/bun": "latest"
   },
   "scripts": {
-    "zola": "zola serve",
-    "tailwind": "npx @tailwindcss/cli -i ./styles/in.css -o ./static/styles/style.css --watch",
-    "dev": "npm-run-all --parallel zola tailwind",
-    "clean": "rm -rf ./static/styles/style.css ./docs",
-    "tailwind:build": "npx @tailwindcss/cli -i ./styles/in.css -o ./static/styles/style.css --minify",
+    "clean": "rm -rf ./docs",
+    "tailwind:watch": "bun tailwindcss -i ./tailwind.css -o ./static/css/style.css --watch",
+    "tailwind:build": "bun tailwindcss -i ./tailwind.css -o ./static/css/style.css --minify",
+    "ts:watch": "bun build --outdir ./static/js ./ts/bundle.ts --watch",
+    "ts:build": "bun build --outdir ./static/js ./ts/bundle.ts --minify",
+    "zola:watch": "zola serve",
     "zola:build": "zola build --force --output-dir ./docs/",
-    "build": "npm-run-all --sequential clean tailwind:build zola:build"
+    "dev": "bun ts:watch & bun tailwind:watch & bun zola:watch",
+    "prod": "bun clean && bun ts:build && bun tailwind:build && bun zola:build"
   }
 }
