@@ -6,7 +6,7 @@
         <title>florianfelix</title>
         <link rel="icon" type="image/x-icon" href="{{ get_url(path="favicon.ico") | safe }}">
         <link rel="stylesheet" href="{{ get_url(path="/css/style.css", cachebust=true) | safe }}" />
-        <script type="text/javascript" src="{{ get_url(path="/js/bundle.js", cachebust=true) | safe }}"></script>
+        <script defer type="text/javascript" src="{{ get_url(path="/js/bundle.js", cachebust=true) | safe }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
     </head>
     <body class="bg-zinc-950 text-white
@@ -15,6 +15,8 @@
         [&::-webkit-scrollbar-thumb]:bg-zinc-500">
         {% include 'nav.html' %}
         <div class="m-auto max-w-5xl w-full bg-zinc-900 p-4 mt-16 mb-11">
+
+            <div x-data x-text="$store.win.width">tmp</div>
 
             <div id="content" class="prose prose-invert max-w-none ">
                 {% block content %} placeholder content {% endblock content %}
