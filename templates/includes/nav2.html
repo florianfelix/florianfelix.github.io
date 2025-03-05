@@ -1,0 +1,36 @@
+<nav
+    x-data="{open: true}"
+    id="header"
+    class="bg-zinc-950 fixed w-full z-20 top-0 start-0"
+>
+    <div class="flex justify-between">
+        <div><a href="/">florianfelix</a></div>
+        <div
+            class="w-full flex justify-between bg-zinc-950"
+            x-bind:class="$store.win.is_small() && 'flex-col-reverse w-min fixed top-0 right-0'"
+        >
+            <div x-show="! $store.win.is_small()"></div>
+            <ul
+                class="flex gap-1"
+                x-show="open || ! $store.win.is_small()"
+                x-bind:class="$store.win.is_small() && 'flex-col gap-2 mx-4 mt-3'"
+            >
+                <li><a href="/about">about</a></li>
+                <li><a href="/projects">projects</a></li>
+                <li><a href="/blog">blog</a></li>
+                <li><a href="/contact">contact</a></li>
+            </ul>
+            <div
+                x-bind:class="$store.win.is_small() && 'text-right '"
+                class="cursor-pointer mx-4"
+                @click="open = ! open"
+            >
+                <div x-show="$store.win.is_small()">
+                    <ion-icon
+                        name="ellipsis-horizontal-circle-outline"
+                    ></ion-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
